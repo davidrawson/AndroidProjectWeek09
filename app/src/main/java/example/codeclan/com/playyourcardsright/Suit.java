@@ -5,8 +5,20 @@ package example.codeclan.com.playyourcardsright;
  */
 
 public enum Suit {
-    SPADES,
-    HEARTS,
-    CLUBS,
-    DIAMONDS;
+    SPADES("s"),
+    HEARTS("h"),
+    CLUBS("c"),
+    DIAMONDS("d");
+
+
+    private final String suitInitial;
+
+    Suit(String suitInitial){
+        this.suitInitial = suitInitial;
+    }
+
+    public String getSuitInitial() {
+        return this.suitInitial;
+    }
+
 }

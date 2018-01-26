@@ -8,11 +8,13 @@ public class Card {
 
     private Suit suit;
     private Rank rank;
+    private String imageFile;
 
-    public Card(Suit suit, Rank rank) {
+    public Card(Suit suit, Rank rank, String imageFile) {
 
         this.suit = suit;
         this.rank = rank;
+        this.imageFile = imageFile;
     }
 
     public Suit getSuit(){
@@ -22,6 +24,10 @@ public class Card {
 
     public Rank getRank(){
         return this.rank;
+    }
+
+    public String getImageFile(){
+        return this.imageFile;
     }
 
 }
