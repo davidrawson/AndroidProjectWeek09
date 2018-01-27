@@ -7,19 +7,52 @@
     tools:context="example.codeclan.com.playyourcardsright.MainActivity">
 
     <ImageView
-        android:id="@+id/homePic"
-        android:layout_width="247dp"
-        android:layout_height="369dp"
-        android:layout_marginBottom="305dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="134dp"
+        android:id="@+id/nextCard"
+        android:layout_width="91dp"
+        android:layout_height="121dp"
+        android:layout_marginBottom="192dp"
+        android:layout_marginStart="144dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262"
         app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/firstCard"
+        android:layout_width="91dp"
+        android:layout_height="121dp"
+        android:layout_marginBottom="192dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/card3"
+        android:layout_width="70dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nextCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/red_back" />
+
+    <ImageView
+        android:id="@+id/card4"
+        android:layout_width="70dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nextCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/red_back" />
+
+    <ImageView
+        android:id="@+id/card5"
+        android:layout_width="70dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nextCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/red_back" />
 
 </android.support.constraint.ConstraintLayout>

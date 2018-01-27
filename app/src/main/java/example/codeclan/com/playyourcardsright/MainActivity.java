@@ -12,14 +12,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ImageView imageView = new ImageView(findViewById(R.id.homePic));
-
-//        String red = "d";
-//        String back = "5";
-
-//        String cardID = red + back;
-
         Deck deck =  new Deck();
+        deck.shuffleCards();
         deck.shuffleCards();
         Card card = deck.removeCard();
 
@@ -31,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.homePic);
         imageView.setImageResource(cardPic);
     }
+
+
+
+
 }
