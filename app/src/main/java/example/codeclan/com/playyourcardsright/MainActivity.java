@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
 
 
-        ImageView imageView = findViewById(R.id.homePic);
-        imageView.setImageResource(cardPic);
+        ImageView firstView = findViewById(R.id.firstCard);
+        firstView.setImageResource(cardPic);
+
+        ImageView nextView = findViewById(R.id.nextCard);
+        nextView.setImageResource(R.drawable.red_back);
     }
 
 
