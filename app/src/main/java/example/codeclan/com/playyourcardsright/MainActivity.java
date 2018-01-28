@@ -75,11 +75,14 @@ public class MainActivity extends AppCompatActivity {
         nextView = findViewById(R.id.nextCard);
         nextView.setImageResource(cardPic);
 
-//        removeDownturnedCard();
-        if (game.checkForRoundWin(button.getTag())){
+        if (game.checkForRoundWin(button.getTag()) == "win"){
             winMessage.setVisibility(View.VISIBLE);
         }else{
-            // loser
+            if (game.checkForRoundWin(button.getTag()) == "draw"){
+                // You get nothing for a draw, not in this game.
+            }else{
+                // loser
+            }
 
         }
     }
@@ -117,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
     public void removeDownturnedCard() {
         if (game.getRoundNumber() == 1){
             View cardImage = findViewById(R.id.card5);
+            cardImage.setVisibility(INVISIBLE);
+        }
+        if (game.getRoundNumber() == 2){
+            View cardImage = findViewById(R.id.card4);
+            cardImage.setVisibility(INVISIBLE);
+        }
+        if (game.getRoundNumber() == 3){
+            View cardImage = findViewById(R.id.card3);
             cardImage.setVisibility(INVISIBLE);
         }
     }

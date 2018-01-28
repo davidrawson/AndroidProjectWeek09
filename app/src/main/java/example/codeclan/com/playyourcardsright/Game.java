@@ -13,7 +13,7 @@ public class Game {
     private int roundsTotal;
     private Card firstCard;
     private Card nextCard;
-    private boolean roundWin;
+    private String result;
 
     public Game(int roundsTotal){
         deck = new Deck();
@@ -47,23 +47,31 @@ public class Game {
     }
 
 
-    public boolean checkForRoundWin(Object tag) {
+    public String checkForRoundWin(Object tag) {
         if (tag == "higher"){
             if (this.nextCard.getRank().getValue() > this.firstCard.getRank().getValue()){
-                roundWin = true;
+                result = "win";
             }else{
-                roundWin = false;
+                if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()){
+                    result = "draw";
+                }else{
+                    result = "lose";
+                }
             }
         }
-        if (tag == "lower"){
-            if (this.nextCard.getRank().getValue() < this.firstCard.getRank().getValue()){
-                roundWin = true;
-            }else{
-                roundWin = false;
+        if (tag == "lower") {
+            if (this.nextCard.getRank().getValue() < this.firstCard.getRank().getValue()) {
+                result = "win";
+            } else {
+                if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()) {
+                    result = "draw";
+                } else {
+                    result = "lose";
+                }
             }
         }
-        Log.d(getClass().toString(), "Correct guess? " +roundWin);
-        return this.roundWin;
+        Log.d(getClass().toString(), "Correct guess? " + result);
+        return this.result;
     }
 
     public void changeFirstCard() {
@@ -73,5 +81,6 @@ public class Game {
     public void moveCards(){
         this.firstCard = this.nextCard;
         this.nextCard = deck.removeCard();
+        this.roundNumber ++;
     }
 }
