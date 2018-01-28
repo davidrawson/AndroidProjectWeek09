@@ -65,6 +65,7 @@
         android:layout_height="44dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="40dp"
+        android:onClick="onChangeCardButtonClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstCard"
         app:srcCompat="@drawable/refresh_button" />
@@ -75,9 +76,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="180dp"
+        android:onClick="onHigherLowerButtonClick"
         app:layout_constraintBottom_toTopOf="@+id/nextCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/up_button" />
+        app:srcCompat="@drawable/up_button"
+        tools:tag="higher" />
 
     <ImageButton
         android:id="@+id/lowerButton"
@@ -85,8 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="180dp"
         android:layout_marginTop="24dp"
+        android:onClick="onHigherLowerButtonClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nextCard"
-        app:srcCompat="@drawable/down_button" />
+        app:srcCompat="@drawable/down_button"
+        tools:tag="lower" />
 
 </android.support.constraint.ConstraintLayout>

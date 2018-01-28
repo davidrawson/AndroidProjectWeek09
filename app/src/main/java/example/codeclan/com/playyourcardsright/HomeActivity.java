@@ -12,6 +12,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         View fiveCardGameButton = findViewById(R.id.fiveCardGame);
         fiveCardGameButton.setTag("five");
         View fullPackGameButton = findViewById(R.id.fiveCardGame);
@@ -20,7 +21,10 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void onGameButtonClick(View button) {
+        String buttonPressed = button.getTag().toString();
+//        int buttonId = button.getId();
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("button", buttonPressed);
         startActivity(intent);
     }
 }
