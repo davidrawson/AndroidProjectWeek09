@@ -78,6 +78,14 @@ public class Game {
         return this.result;
     }
 
+    public boolean checkGameOver() {
+        if (this.roundNumber == this.roundsTotal) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void changeFirstCard() {
         this.firstCard = deck.removeCard();
     }
