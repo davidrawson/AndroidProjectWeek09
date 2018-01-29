@@ -137,15 +137,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeDownturnedCard() {
-        if (game.getRoundNumber() == 1){
+        if (game.getRoundNumber() == 2){
             View cardImage = findViewById(R.id.card5);
             cardImage.setVisibility(INVISIBLE);
         }
-        if (game.getRoundNumber() == 2){
+        if (game.getRoundNumber() == 3){
             View cardImage = findViewById(R.id.card4);
             cardImage.setVisibility(INVISIBLE);
         }
-        if (game.getRoundNumber() == 3){
+        if (game.getRoundNumber() == 4){
             View cardImage = findViewById(R.id.card3);
             cardImage.setVisibility(INVISIBLE);
         }
