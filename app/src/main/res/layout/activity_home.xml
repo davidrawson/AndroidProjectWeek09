@@ -11,15 +11,14 @@
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="0dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/green_background" />
 
     <Button
@@ -47,5 +46,16 @@
         app:layout_constraintStart_toEndOf="@+id/fiveCardGame"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/leaderboardButton"
+        android:layout_width="103dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="180dp"
+        android:onClick="onLeaderboardButtonClick"
+        android:text="Leaderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fiveCardGame" />
 
 </android.support.constraint.ConstraintLayout>

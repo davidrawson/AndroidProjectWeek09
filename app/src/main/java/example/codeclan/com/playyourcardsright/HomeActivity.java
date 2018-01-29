@@ -26,4 +26,11 @@ public class HomeActivity extends AppCompatActivity {
         intent.putExtra("button", buttonPressed);
         startActivity(intent);
     }
+
+    public void onLeaderboardButtonClick(View button) {
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        startActivity(intent);
+    }
+
+
 }
