@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView firstView;
     ImageView nextView;
-    private boolean firstGo;
-    private Deck deck;
+    ImageView messageView;
+    //    private boolean firstGo;
+//    private Deck deck;
     private Game game;
-    private View winMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
 //        deck.shuffleCards();
 //        Card card = deck.removeCard();
 
-        firstGo = true;
+//        firstGo = true;
+
+//        ImageView backgroundImage = findViewById(R.id.background);
+//        backgroundImage.setImageResource(R.id.templ);
         View higherButton = findViewById(R.id.higherButton);
         higherButton.setTag("higher");
         View lowerButton = findViewById(R.id.lowerButton);
         lowerButton.setTag("lower");
-        winMessage = findViewById(R.id.winMessage);
-        winMessage.setVisibility(INVISIBLE);
+        messageView = findViewById(R.id.messageBox);
+        messageView.setVisibility(INVISIBLE);
 
         Intent intent = getIntent(); // gets the intent that started this activity, the AnswerActivity.
         Bundle extras = intent.getExtras();  // just a bunch of data. All onCreate methods get one.
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onHigherLowerButtonClick(View button){
-        firstGo = false;
+//        firstGo = false;
         View refreshButton = findViewById(R.id.refreshButton);
         refreshButton.setVisibility(INVISIBLE);
         Log.d(getClass().toString(), "onHigherLowerButtonClick " + button.getTag());
@@ -76,12 +79,16 @@ public class MainActivity extends AppCompatActivity {
         nextView.setImageResource(cardPic);
 
         if (game.checkForRoundWin(button.getTag()) == "win"){
-            winMessage.setVisibility(View.VISIBLE);
+//            messageView = findViewById(R.id.messageBox);
+            messageView.setImageResource(R.drawable.tick_2);
+            messageView.setVisibility(View.VISIBLE);
         }else{
             if (game.checkForRoundWin(button.getTag()) == "draw"){
                 // You get nothing for a draw, not in this game.
             }else{
                 // loser
+                messageView.setImageResource(R.drawable.you_just_lost);
+                messageView.setVisibility(View.VISIBLE);
             }
 
         }
@@ -91,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         game.changeFirstCard();
         String cardID = game.getFirstCard().getImageFile();
         int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
-        if (firstGo = true) {
+//        if (firstGo = true) {
             firstView.setImageResource(cardPic);
-        }
-        firstGo = false;
+//        }
+//        firstGo = false;
         button.setVisibility(INVISIBLE);
     }
 
