@@ -1,5 +1,6 @@
 package example.codeclan.com.playyourcardsright;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
     private View lowerButton;
     private Game game;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         higherButton = findViewById(R.id.higherButton);
@@ -78,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 messageView.setVisibility(View.VISIBLE);
 
             } else{
-                messageView.setImageResource(R.drawable.tick_2);
+                messageView.setImageResource(R.drawable.good_game);
                 messageView.setVisibility(View.VISIBLE);
             }
         }else{
@@ -148,8 +152,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void goHome() {
+        // Before you go home do the leaderboard stuff
+        LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
+        LeaderEntry entry = new LeaderEntry();
+        entry.setName("David");
+        entry.setRound(game.getRoundNumber());
+        addEntry(db, entry);
+
+        Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
+
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+    }
+
+    private static LeaderEntry addEntry(final LeaderDatabase db, LeaderEntry entry) {
+        db.entryDao().insertAll(entry);
+        return entry;
     }
 
 }

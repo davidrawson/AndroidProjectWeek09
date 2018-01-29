@@ -2,6 +2,8 @@ package example.codeclan.com.playyourcardsright;
 
 import android.util.Log;
 
+import java.util.List;
+
 /**
  * Created by davidrawson on 28/01/2018.
  */
@@ -95,4 +97,6 @@ public class Game {
         this.nextCard = deck.removeCard();
         this.roundNumber ++;
     }
+
+//    List<LeaderEntry> entries = App.get().getDB().LeaderEntryDao().getAll();
 }
