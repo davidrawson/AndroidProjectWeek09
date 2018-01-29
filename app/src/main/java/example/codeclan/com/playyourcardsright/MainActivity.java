@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView firstView;
     ImageView nextView;
     ImageView messageView;
+    View higherButton;
+    View lowerButton;
     //    private boolean firstGo;
 //    private Deck deck;
     private Game game;
@@ -33,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        ImageView backgroundImage = findViewById(R.id.background);
 //        backgroundImage.setImageResource(R.id.templ);
-        View higherButton = findViewById(R.id.higherButton);
+        higherButton = findViewById(R.id.higherButton);
         higherButton.setTag("higher");
-        View lowerButton = findViewById(R.id.lowerButton);
+        lowerButton = findViewById(R.id.lowerButton);
         lowerButton.setTag("lower");
         messageView = findViewById(R.id.messageBox);
         messageView.setVisibility(INVISIBLE);
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
 //        firstGo = false;
         View refreshButton = findViewById(R.id.refreshButton);
         refreshButton.setVisibility(INVISIBLE);
+        higherButton.setVisibility(INVISIBLE);
+        lowerButton.setVisibility(INVISIBLE);
         Log.d(getClass().toString(), "onHigherLowerButtonClick " + button.getTag());
         String cardID = game.getNextCard().getImageFile();
         int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
@@ -85,12 +89,14 @@ public class MainActivity extends AppCompatActivity {
         }else{
             if (game.checkForRoundWin(button.getTag()) == "draw"){
                 // You get nothing for a draw, not in this game.
+                messageView.setImageResource(R.drawable.a_draw);
+                messageView.setVisibility(View.VISIBLE);
             }else{
                 // loser
                 messageView.setImageResource(R.drawable.you_just_lost);
                 messageView.setVisibility(View.VISIBLE);
             }
-
+//            youLostGoHome();
         }
     }
 
@@ -105,11 +111,15 @@ public class MainActivity extends AppCompatActivity {
         button.setVisibility(INVISIBLE);
     }
 
-    public void onWinMessageClick(View winButton){
-        winButton.setVisibility(INVISIBLE);
-        game.moveCards();
-        setCards();
-        removeDownturnedCard();
+    public void onMessageClick(View messageButton){
+        if (game.getResult() == "win"){
+            messageButton.setVisibility(INVISIBLE);
+            game.moveCards();
+            setCards();
+            removeDownturnedCard();
+        }else{
+            youLostGoHome();
+        }
     }
 
     public void setCards(){
@@ -121,8 +131,10 @@ public class MainActivity extends AppCompatActivity {
 
         nextView = findViewById(R.id.nextCard);
         nextView.setImageResource(R.drawable.red_back);
-    }
 
+        higherButton.setVisibility(View.VISIBLE);
+        lowerButton.setVisibility(View.VISIBLE);
+    }
 
     public void removeDownturnedCard() {
         if (game.getRoundNumber() == 1){
@@ -137,6 +149,12 @@ public class MainActivity extends AppCompatActivity {
             View cardImage = findViewById(R.id.card3);
             cardImage.setVisibility(INVISIBLE);
         }
+    }
+
+
+    private void youLostGoHome() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -98,7 +98,7 @@
         android:id="@+id/messageBox"
         android:layout_width="352dp"
         android:layout_height="172dp"
-        android:onClick="onWinMessageClick"
+        android:onClick="onMessageClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

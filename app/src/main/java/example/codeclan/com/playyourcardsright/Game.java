@@ -46,6 +46,10 @@ public class Game {
         return roundsTotal;
     }
 
+    public String getResult(){
+        return this.result;
+    }
+
 
     public String checkForRoundWin(Object tag) {
         if (tag == "higher"){
