@@ -15,14 +15,13 @@ public class HomeActivity extends AppCompatActivity {
 
         View fiveCardGameButton = findViewById(R.id.fiveCardGame);
         fiveCardGameButton.setTag("five");
-        View fullPackGameButton = findViewById(R.id.fiveCardGame);
+        View fullPackGameButton = findViewById(R.id.fullPackGame);
         fullPackGameButton.setTag("full");
     }
 
 
     public void onGameButtonClick(View button) {
         String buttonPressed = button.getTag().toString();
-//        int buttonId = button.getId();
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("button", buttonPressed);
         startActivity(intent);

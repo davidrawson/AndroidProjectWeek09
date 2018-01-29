@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import static android.view.View.INVISIBLE;
 
@@ -24,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-//        ImageView backgroundImage = findViewById(R.id.background);
-//        backgroundImage.setImageResource(R.drawable.green_background);
         higherButton = findViewById(R.id.higherButton);
         higherButton.setTag("higher");
         lowerButton = findViewById(R.id.lowerButton);
@@ -39,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(getClass().toString(), "Button " + gameType);
 
-//        if (gameType == "full"){
+        if (gameType.equals("full")){
+            game = new Game(51);
+        }
+        if (gameType.equals("five")){
             game = new Game(4);
-//        }
-//        if (gameType == "five"){
-//            game = new Game(5);
-//        }
+        }
 
 //        deck = game.getDeck();
 //        Card card = deck.removeCard();
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onHigherLowerButtonClick(View button){
-//        firstGo = false;
         View refreshButton = findViewById(R.id.refreshButton);
         refreshButton.setVisibility(INVISIBLE);
         higherButton.setVisibility(INVISIBLE);
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 messageView.setImageResource(R.drawable.you_just_lost);
                 messageView.setVisibility(View.VISIBLE);
             }
-//            youLostGoHome();
         }
     }
 
@@ -129,18 +126,21 @@ public class MainActivity extends AppCompatActivity {
 
         higherButton.setVisibility(View.VISIBLE);
         lowerButton.setVisibility(View.VISIBLE);
+
+        TextView roundCounter = findViewById(R.id.roundCount);
+        roundCounter.setText("Round: " + game.getRoundNumber());
     }
 
     public void removeDownturnedCard() {
-        if (game.getRoundNumber() == 2){
+        if (game.getRoundsTotal() - game.getRoundNumber() == 2){
             View cardImage = findViewById(R.id.card5);
             cardImage.setVisibility(INVISIBLE);
         }
-        if (game.getRoundNumber() == 3){
+        if (game.getRoundsTotal() - game.getRoundNumber() == 1){
             View cardImage = findViewById(R.id.card4);
             cardImage.setVisibility(INVISIBLE);
         }
-        if (game.getRoundNumber() == 4){
+        if (game.getRoundsTotal() - game.getRoundNumber() == 0){
             View cardImage = findViewById(R.id.card3);
             cardImage.setVisibility(INVISIBLE);
         }
