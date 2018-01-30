@@ -2,6 +2,7 @@ package example.codeclan.com.playyourcardsright;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +31,9 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
         TextView name = leaderListView.findViewById(R.id.name);
         name.setText(currentEntry.getName());
 
-//        TextView roundsCompleted = leaderListView.findViewById(R.id.roundCompleted);
-//        roundsCompleted.setText(currentEntry.getRound());
+        TextView roundsCompleted = leaderListView.findViewById(R.id.roundCompleted);
+        Log.d(getClass().toString(), "Rounds completed " + currentEntry.getRound());
+        roundsCompleted.setText(String.valueOf(currentEntry.getRound()));
 
         leaderListView.setTag(currentEntry);
 
@@ -40,7 +42,7 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
 
 
 }
-
+//
 
 
 //    @Override
