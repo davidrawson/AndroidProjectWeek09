@@ -20,7 +20,7 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
 
-        ArrayList<LeaderEntry> entries = new ArrayList<>(db.entryDao().getAllAsc()) ;
+        ArrayList<LeaderEntry> entries = new ArrayList<>(db.entryDao().getAllDesc()) ;
 
         Log.d(getClass().toString(), "Entry " + entries.get(0).getName());
 

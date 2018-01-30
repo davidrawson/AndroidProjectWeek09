@@ -154,10 +154,20 @@ public class MainActivity extends AppCompatActivity {
     private void goHome() {
         // Before you go home do the leaderboard stuff
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
-        LeaderEntry entry = new LeaderEntry();
-        entry.setName("David");
-        entry.setRound(game.getRoundNumber());
-        addEntry(db, entry);
+
+        // Check qualification fo the leaderboard
+        int worstScore = db.entryDao().getAllAsc().get(0).getRound();
+
+        if (game.getRoundNumber() > worstScore){
+
+            db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+            LeaderEntry entry = new LeaderEntry();
+            entry.setName("David 2");
+            entry.setRound(game.getRoundNumber());
+            addEntry(db, entry);
+        }
+
+
 
         Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
 
