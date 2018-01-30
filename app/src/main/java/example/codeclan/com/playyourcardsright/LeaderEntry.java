@@ -4,12 +4,14 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 /**
  * Created by davidrawson on 29/01/2018.
  */
 
 @Entity
-public class LeaderEntry {
+public class LeaderEntry implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     private int uid;

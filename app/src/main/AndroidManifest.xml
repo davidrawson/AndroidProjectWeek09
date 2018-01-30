@@ -21,10 +21,13 @@
             android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".LeaderboardActivity"
-            android:parentActivityName=".HomeActivity"/>
+            android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".BoardEntryActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DeleteBoardItemActivity"
+            android:parentActivityName=".LeaderboardActivity" />
     </application>
 
 </manifest>

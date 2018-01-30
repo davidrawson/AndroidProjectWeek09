@@ -33,7 +33,14 @@ public class LeaderboardActivity extends AppCompatActivity {
 
     }
 
-    
+
+    public void onBoardItemClick(View boardItem){
+        LeaderEntry entry = (LeaderEntry) boardItem.getTag();
+        Intent intent = new Intent(this, DeleteBoardItemActivity.class);
+        intent.putExtra("name", entry);
+        startActivity(intent);
+
+    }
 
 
 //    public void onListItemClick(View listItem){
