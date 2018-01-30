@@ -18,8 +18,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".HomeActivity"></activity>
-        <activity android:name=".LeaderboardActivity"></activity>
+            android:parentActivityName=".HomeActivity" />
+        <activity
+            android:name=".LeaderboardActivity"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
+            android:name=".BoardEntryActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

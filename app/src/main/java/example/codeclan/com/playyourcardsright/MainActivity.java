@@ -156,23 +156,57 @@ public class MainActivity extends AppCompatActivity {
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
 
         // Check qualification fo the leaderboard
-        int worstScore = db.entryDao().getAllAsc().get(0).getRound();
-
-        if (game.getRoundNumber() > worstScore){
-
-            db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-            LeaderEntry entry = new LeaderEntry();
-            entry.setName("David 2");
-            entry.setRound(game.getRoundNumber());
-            addEntry(db, entry);
+        int worstScore = 0;
+        if (db.entryDao().getAllAsc().size() > 0) {
+            worstScore = db.entryDao().getAllAsc().get(0).getRound();
         }
 
 
 
-        Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
 
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+
+//        LeaderEntry entry = new LeaderEntry();
+//        entry.setName("David 2");
+//        entry.setRound(game.getRoundNumber());
+//        addEntry(db, entry);
+
+
+        if (game.getRoundNumber() > worstScore){
+            // delete worst entry
+
+            if (db.entryDao().getAllAsc().size() > 0) {
+                db.entryDao().delete(db.entryDao().getAllAsc().get(0));
+            }
+
+
+            Intent intent = new Intent(this, BoardEntryActivity.class);
+            intent.putExtra("score", game.getRoundNumber());
+            startActivity(intent);
+
+//            LeaderEntry entry = new LeaderEntry();
+//            entry.setName("David 2");
+//            entry.setRound(game.getRoundNumber());
+//            addEntry(db, entry);
+        }
+
+        else {
+
+            Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
+
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+
+
+
     }
 
     private static LeaderEntry addEntry(final LeaderDatabase db, LeaderEntry entry) {
