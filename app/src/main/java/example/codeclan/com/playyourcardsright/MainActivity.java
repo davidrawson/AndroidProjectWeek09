@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         if (game.getRoundNumber() > worstScore){
             // delete worst entry
 
-            if (db.entryDao().getAllAsc().size() > 0) {
+            if (db.entryDao().getAllAsc().size() > 9) {
                 db.entryDao().delete(db.entryDao().getAllAsc().get(0));
             }
 
