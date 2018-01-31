@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         int worstScore = 0;
         if (db.entryDao().getAllAsc().size() > 0) {
-            worstScore = db.entryDao().getAllAsc().get(0).getRound();
+            worstScore = db.entryDao().getAllAsc().get(0).getScore();
         }
 
         if (game.getRoundNumber() > worstScore || db.entryDao().getAllAsc().size() < 10){
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Intent intent = new Intent(this, BoardEntryActivity.class);
-            intent.putExtra("score", game.getRoundNumber());
+            intent.putExtra("score", game.getScore());
             startActivity(intent);
         }
         else {

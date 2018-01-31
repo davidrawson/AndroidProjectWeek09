@@ -32,7 +32,7 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
 
         TextView roundsCompleted = leaderListView.findViewById(R.id.roundCompleted);
 //        Log.d(getClass().toString(), "Rounds completed " + currentEntry.getRound());
-        roundsCompleted.setText(String.valueOf(currentEntry.getRound()));
+        roundsCompleted.setText(String.valueOf(currentEntry.getScore()));
 
         leaderListView.setTag(currentEntry);
 

@@ -16,10 +16,10 @@ import java.util.List;
 @Dao
 public interface LeaderEntryDao {
 
-    @Query("SELECT * FROM leaderentry ORDER BY round DESC")
+    @Query("SELECT * FROM leaderentry ORDER BY score DESC")
     List<LeaderEntry> getAllDesc();
 
-    @Query("SELECT * FROM leaderentry ORDER BY round ASC")
+    @Query("SELECT * FROM leaderentry ORDER BY score ASC")
     List<LeaderEntry> getAllAsc();
 
     @Query("SELECT * FROM leaderentry WHERE name LIKE :name LIMIT 1")

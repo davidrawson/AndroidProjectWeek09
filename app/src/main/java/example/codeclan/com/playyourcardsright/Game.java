@@ -15,10 +15,12 @@ public class Game {
     private Card firstCard;
     private Card nextCard;
     private String result;
+    private int score;
 
     public Game(int roundsTotal){
         deck = new Deck();
         deck.shuffleCards();
+        this.score = 0;
         this.roundNumber = 1;
         this.roundsTotal = roundsTotal;
         this.firstCard = deck.removeCard();
@@ -39,6 +41,10 @@ public class Game {
         return nextCard;
     }
 
+    public int getScore(){
+        return score;
+    }
+
     public int getRoundNumber() {
         return roundNumber;
     }
@@ -56,6 +62,7 @@ public class Game {
         if (tag == "higher"){
             if (this.nextCard.getRank().getValue() > this.firstCard.getRank().getValue()){
                 result = "win";
+                this.score ++;
             }else{
                 if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()){
                     result = "draw";
@@ -67,6 +74,7 @@ public class Game {
         if (tag == "lower") {
             if (this.nextCard.getRank().getValue() < this.firstCard.getRank().getValue()) {
                 result = "win";
+                this.score ++;
             } else {
                 if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()) {
                     result = "draw";

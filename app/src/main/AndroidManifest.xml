@@ -24,8 +24,7 @@
             android:name=".LeaderboardActivity"
             android:parentActivityName=".HomeActivity" />
         <activity
-            android:name=".BoardEntryActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".BoardEntryActivity" />
         <activity
             android:name=".DeleteBoardItemActivity"
             android:parentActivityName=".LeaderboardActivity" />

@@ -19,7 +19,7 @@ public class DeleteBoardItemActivity extends AppCompatActivity {
         entry = (LeaderEntry)intent.getSerializableExtra("name");
 
         TextView itemDetails = findViewById(R.id.itemToDelete);
-        itemDetails.setText(entry.getName() + "   Score: " + entry.getRound() );
+        itemDetails.setText(entry.getName() + "   Score: " + entry.getScore() );
 
     }
 

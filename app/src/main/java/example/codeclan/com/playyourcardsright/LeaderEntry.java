@@ -19,8 +19,8 @@ public class LeaderEntry implements Serializable{
     @ColumnInfo(name = "name")
     private String name;
 
-    @ColumnInfo(name = "round")
-    private int round;
+    @ColumnInfo(name = "score")
+    private int score;
 
     // getters and setters
     public int getUid() {
@@ -39,12 +39,12 @@ public class LeaderEntry implements Serializable{
         this.name = name;
     }
 
-    public int getRound(){
-        return round;
+    public int getScore(){
+        return score;
     }
 
-    public void setRound(int round){
-        this.round = round;
+    public void setScore(int score){
+        this.score = score;
     }
 
 }
