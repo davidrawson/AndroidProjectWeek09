@@ -18,7 +18,6 @@ public class Card {
     }
 
     public Suit getSuit(){
-
         return this.suit;
     }
 

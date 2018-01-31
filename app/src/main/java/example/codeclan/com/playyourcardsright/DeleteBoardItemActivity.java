@@ -29,19 +29,6 @@ public class DeleteBoardItemActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, LeaderboardActivity.class);
         startActivity(intent);
-
     }
 }
 
-
-
-
-
-//    Intent intent = getIntent();
-//    Album album = (Album)intent.getSerializableExtra("album");
-//
-//    TextView artistView = findViewById(R.id.artist);
-//        artistView.setText(album.getArtist().toString());
-//
-//                TextView titleView = findViewById(R.id.title);
-//                titleView.setText(album.getTitle().toString());

@@ -1,6 +1,5 @@
 package example.codeclan.com.playyourcardsright;
 
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
         higherButton = findViewById(R.id.higherButton);
         higherButton.setTag("higher");
         lowerButton = findViewById(R.id.lowerButton);
@@ -36,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         messageView = findViewById(R.id.messageBox);
         messageView.setVisibility(INVISIBLE);
 
-        Intent intent = getIntent(); // gets the intent that started this activity, the AnswerActivity.
-        Bundle extras = intent.getExtras();  // just a bunch of data. All onCreate methods get one.
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
         String gameType = extras.getString("button");
 
-        Log.d(getClass().toString(), "Button " + gameType);
+//        Log.d(getClass().toString(), "Button " + gameType);
 
         if (gameType.equals("full")){
             game = new Game(51);
@@ -49,19 +45,8 @@ public class MainActivity extends AppCompatActivity {
             game = new Game(4);
         }
 
-//        deck = game.getDeck();
-//        Card card = deck.removeCard();
-
-//        String cardID = game.getFirstCard().getImageFile();
-//
-//        int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
-
         setCards();
-//        firstView = findViewById(R.id.firstCard);
-//        firstView.setImageResource(cardPic);
-//
-//        nextView = findViewById(R.id.nextCard);
-//        nextView.setImageResource(R.drawable.red_back);
+
     }
 
     public void onHigherLowerButtonClick(View button){
@@ -107,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onMessageClick(View messageButton){
-        if (game.checkGameOver()) { goHome();}
+        if (game.checkGameOver()) { goBoardEntryOrHome();}
         if (game.getResult() == "win"){
             messageButton.setVisibility(INVISIBLE);
             game.moveCards();
             setCards();
             removeDownturnedCard();
         }else{
-            goHome();
+            goBoardEntryOrHome();
         }
     }
 
@@ -151,61 +136,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void goHome() {
-        // Before you go home do the leaderboard stuff
+    private void goBoardEntryOrHome() {
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
 
-        // Check qualification fo the leaderboard
         int worstScore = 0;
         if (db.entryDao().getAllAsc().size() > 0) {
             worstScore = db.entryDao().getAllAsc().get(0).getRound();
         }
 
-
-
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-//        db.entryDao().delete(db.entryDao().getAllAsc().get(0));
-
-
-//        LeaderEntry entry = new LeaderEntry();
-//        entry.setName("David 2");
-//        entry.setRound(game.getRoundNumber());
-//        addEntry(db, entry);
-
-
         if (game.getRoundNumber() > worstScore){
-            // delete worst entry
 
             if (db.entryDao().getAllAsc().size() > 9) {
                 db.entryDao().delete(db.entryDao().getAllAsc().get(0));
             }
 
-
             Intent intent = new Intent(this, BoardEntryActivity.class);
             intent.putExtra("score", game.getRoundNumber());
             startActivity(intent);
-
-//            LeaderEntry entry = new LeaderEntry();
-//            entry.setName("David 2");
-//            entry.setRound(game.getRoundNumber());
-//            addEntry(db, entry);
         }
-
         else {
-
-            Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
-
+//            Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
-
-
 
     }
 

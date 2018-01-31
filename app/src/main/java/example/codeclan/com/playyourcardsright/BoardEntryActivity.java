@@ -31,13 +31,13 @@ public class BoardEntryActivity extends AppCompatActivity {
 
 
     public void onEnterTextButtonClick(View button){
-        // do summat
-
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
         LeaderEntry entry = new LeaderEntry();
+
         entry.setName(nameEntry.getText().toString());
         entry.setRound(roundsCompleted);
         db.entryDao().insertAll(entry);
+
         Intent intent = new Intent(this, LeaderboardActivity.class);
         startActivity(intent);
     }

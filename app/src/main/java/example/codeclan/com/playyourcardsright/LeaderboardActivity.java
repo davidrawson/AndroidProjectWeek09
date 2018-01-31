@@ -16,10 +16,6 @@ public class LeaderboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
 
-        // some kind of loop to take records from the db and put them in an array
-        // then using the adapter to populate the listview.
-        // actually, no. An array is already being returned.
-
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
 
         ArrayList<LeaderEntry> entries = new ArrayList<>(db.entryDao().getAllDesc()) ;
@@ -30,28 +26,15 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         ListView leaderListView = findViewById(R.id.leaderList);
         leaderListView.setAdapter(entriesAdapter);
-
     }
-
 
     public void onBoardItemClick(View boardItem){
         LeaderEntry entry = (LeaderEntry) boardItem.getTag();
+
         Intent intent = new Intent(this, DeleteBoardItemActivity.class);
         intent.putExtra("name", entry);
         startActivity(intent);
 
     }
-
-
-//    public void onListItemClick(View listItem){
-//        Album album = (Album) listItem.getTag();
-//        Log.d("Album title: ", album.getTitle());
-//
-//        Intent intent = new Intent(this, AlbumActivity.class); //NEW
-//        intent.putExtra("album", album); //NEW
-//        startActivity(intent); //NEW
-//    }
-
-
 
 }

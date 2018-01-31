@@ -1,7 +1,6 @@
 package example.codeclan.com.playyourcardsright;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +31,7 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
         name.setText(currentEntry.getName());
 
         TextView roundsCompleted = leaderListView.findViewById(R.id.roundCompleted);
-        Log.d(getClass().toString(), "Rounds completed " + currentEntry.getRound());
+//        Log.d(getClass().toString(), "Rounds completed " + currentEntry.getRound());
         roundsCompleted.setText(String.valueOf(currentEntry.getRound()));
 
         leaderListView.setTag(currentEntry);

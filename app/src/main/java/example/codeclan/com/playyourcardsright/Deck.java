@@ -19,7 +19,7 @@ public class Deck {
 
         for (Rank rank: Rank.values()){
             for (Suit suit: Suit.values()){
-                String imageFile = suit.getSuitInitial() + rank.getStringValue(); // I feel this should be toString()
+                String imageFile = suit.getSuitInitial() + rank.getStringValue();
                 Card card = new Card(suit, rank, imageFile);
                 cards.add(card);
             }

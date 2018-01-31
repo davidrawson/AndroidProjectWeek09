@@ -9,8 +9,6 @@ import android.content.Context;
  * Created by davidrawson on 29/01/2018.
  */
 
-//public class LeaderDatabase {
-//}
 
 @Database(entities = {LeaderEntry.class}, version = 1)
 public abstract class LeaderDatabase extends RoomDatabase {
