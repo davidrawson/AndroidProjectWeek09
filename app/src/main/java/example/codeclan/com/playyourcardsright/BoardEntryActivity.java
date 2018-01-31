@@ -17,16 +17,20 @@ public class BoardEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_entry);
-//        TextView.OnEditorActionListener enterNameListener = new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_SEND || event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-//                    textEnteredActions();
-//                }
-//                return true;
-//            }
-//
-//        };
+        TextView.OnEditorActionListener enterNameListener = new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+                if (event != null){
+                    if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER){
+                        textEnteredActions();
+                    }
+                } else if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE) {
+                    textEnteredActions();
+                }
+                return true;
+            }
+
+        };
 
 
         Intent intent = getIntent();
@@ -37,7 +41,7 @@ public class BoardEntryActivity extends AppCompatActivity {
         entryMessage.setText("You completed " + score + " rounds. Well done! You've made it on the leaderboard. Enter your name.");
 
         nameEntry = findViewById(R.id.editNameText);
-//        nameEntry.setOnEditorActionListener(enterNameListener);
+        nameEntry.setOnEditorActionListener(enterNameListener);
         nameEntry.getText();
     }
 
