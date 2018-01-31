@@ -27,6 +27,14 @@ public class DeleteBoardItemActivity extends AppCompatActivity {
         LeaderDatabase db = LeaderDatabase.getAppDatabase(this);
         db.entryDao().delete(entry);
 
+        backToLeaderboard();
+    }
+
+    public void onCancelButtonClick(View cancelButton){
+        backToLeaderboard();
+    }
+
+    private void backToLeaderboard() {
         Intent intent = new Intent(this, LeaderboardActivity.class);
         startActivity(intent);
     }
