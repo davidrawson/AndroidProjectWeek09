@@ -1,6 +1,7 @@
 package example.codeclan.com.playyourcardsright;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         if (game.checkForRoundWin(button.getTag()) == "win"){
             if (game.checkGameOver()){
                 // you won the game
+                MediaPlayer mp = MediaPlayer.create(this, R.raw.fanfare);
+                mp.start();
                 messageView.setImageResource(R.drawable.winner);
                 messageView.setVisibility(View.VISIBLE);
 
@@ -71,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 messageView.setVisibility(View.VISIBLE);
             }
         }else{
+            MediaPlayer mp = MediaPlayer.create(this, R.raw.ff_buzzer);
+            mp.start();
             if (game.checkForRoundWin(button.getTag()) == "draw"){
                 // You get nothing for a draw, not in this game.
                 messageView.setImageResource(R.drawable.a_draw);
