@@ -20,7 +20,8 @@ public class GameTest {
 
     @Test
     public void hasDeck(){
-        assertEquals(52, game.getDeck().countCards());
+        // The Game contructor draws two cards from the deck, so 50 cards left.
+        assertEquals(50, game.getDeck().countCards());
     }
 
     @Test
