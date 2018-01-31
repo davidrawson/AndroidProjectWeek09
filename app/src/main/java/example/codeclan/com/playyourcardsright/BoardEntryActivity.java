@@ -21,7 +21,7 @@ public class BoardEntryActivity extends AppCompatActivity {
         roundsCompleted = extras.getInt("score");
 
         TextView entryMessage = findViewById(R.id.boardEntryMessage);
-        entryMessage.setText("You completed " + roundsCompleted + " rounds. Well done!");
+        entryMessage.setText("You completed " + roundsCompleted + " rounds. Well done! You've made it on the leaderboard. Enter your name.");
 
         nameEntry = findViewById(R.id.editNameText);
         nameEntry.getText();
