@@ -22,7 +22,6 @@ public class LeaderEntry implements Serializable{
     @ColumnInfo(name = "score")
     private int score;
 
-    // getters and setters
     public int getUid() {
         return uid;
     }

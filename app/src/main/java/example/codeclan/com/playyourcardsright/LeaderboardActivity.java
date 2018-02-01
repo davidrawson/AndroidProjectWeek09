@@ -20,8 +20,6 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         ArrayList<LeaderEntry> entries = new ArrayList<>(db.entryDao().getAllDesc()) ;
 
-        Log.d(getClass().toString(), "Entry " + entries.get(0).getName());
-
         LeaderboardAdapter entriesAdapter = new LeaderboardAdapter(this, entries);
 
         ListView leaderListView = findViewById(R.id.leaderList);

@@ -57,10 +57,6 @@ public class Game {
         return this.result;
     }
 
-//    public boolean cardsEqual() {
-//        return this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue();
-//    }
-
     public String checkForRoundWin(Object tag) {
 
         boolean cardIsHigher = this.nextCard.getRank().getValue() > this.firstCard.getRank().getValue();

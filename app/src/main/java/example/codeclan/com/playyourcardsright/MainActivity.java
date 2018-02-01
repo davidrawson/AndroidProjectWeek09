@@ -172,9 +172,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private static LeaderEntry addEntry(final LeaderDatabase db, LeaderEntry entry) {
-//        db.entryDao().insertAll(entry);
-//        return entry;
-//    }
-
 }
