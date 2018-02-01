@@ -31,7 +31,6 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
         name.setText(currentEntry.getName());
 
         TextView roundsCompleted = leaderListView.findViewById(R.id.roundCompleted);
-//        Log.d(getClass().toString(), "Rounds completed " + currentEntry.getRound());
         roundsCompleted.setText(String.valueOf(currentEntry.getScore()));
 
         leaderListView.setTag(currentEntry);
@@ -41,31 +40,3 @@ class LeaderboardAdapter extends ArrayAdapter<LeaderEntry>{
 
 
 }
-//
-
-
-//    @Override
-//    public View getView(int position, View listItemView, ViewGroup parent){
-//        if (listItemView == null){
-//            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.album_item, parent, false);
-//        }
-//
-//        Album currentAlbum = getItem(position);
-//
-//        TextView ranking = listItemView.findViewById(R.id.ranking);
-//        ranking.setText(currentAlbum.getRanking().toString());
-//
-//        TextView artist = listItemView.findViewById(R.id.artist);
-//        artist.setText(currentAlbum.getArtist().toString());
-//
-//        TextView title = listItemView.findViewById(R.id.title);
-//        title.setText(currentAlbum.getTitle().toString());
-//
-//        TextView year = listItemView.findViewById(R.id.year);
-//        year.setText(currentAlbum.getYear().toString());
-//
-//        listItemView.setTag(currentAlbum);
-//
-//        return listItemView;
-//
-//    }

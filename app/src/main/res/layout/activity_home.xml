@@ -23,14 +23,14 @@
 
     <Button
         android:id="@+id/leaderboardButton"
-        android:layout_width="155dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="244dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="128dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="252dp"
+        android:layout_marginStart="64dp"
         android:onClick="onLeaderboardButtonClick"
         android:text="Leaderboard"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -76,14 +76,14 @@
 
     <Button
         android:id="@+id/rulesButton"
-        android:layout_width="155dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="244dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="128dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="252dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginRight="16dp"
         android:onClick="onRulesButtonClick"
         android:text="Rules"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
