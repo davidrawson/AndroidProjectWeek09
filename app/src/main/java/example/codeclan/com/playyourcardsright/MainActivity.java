@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         String gameType = extras.getString("button");
 
-//        Log.d(getClass().toString(), "Button " + gameType);
-
         if (gameType.equals("full")){
             game = new Game(51);
         }
@@ -51,15 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onHigherLowerButtonClick(View button){
-        View refreshButton = findViewById(R.id.refreshButton);
-        refreshButton.setVisibility(INVISIBLE);
-        higherButton.setVisibility(INVISIBLE);
-        lowerButton.setVisibility(INVISIBLE);
-        Log.d(getClass().toString(), "onHigherLowerButtonClick " + button.getTag());
-        String cardID = game.getNextCard().getImageFile();
-        int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
-        nextView = findViewById(R.id.nextCard);
-        nextView.setImageResource(cardPic);
+        hideButtonsRevealCard();
 
         if (game.checkForRoundWin(button.getTag()) == "win"){
             if (game.checkGameOver()){
@@ -86,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
                 messageView.setVisibility(View.VISIBLE);
             }
         }
+    }
+
+    public void hideButtonsRevealCard(){
+        View refreshButton = findViewById(R.id.refreshButton);
+        refreshButton.setVisibility(INVISIBLE);
+        higherButton.setVisibility(INVISIBLE);
+        lowerButton.setVisibility(INVISIBLE);
+        String cardID = game.getNextCard().getImageFile();
+        int cardPic = getResources().getIdentifier(cardID, "drawable", getPackageName());
+        nextView = findViewById(R.id.nextCard);
+        nextView.setImageResource(cardPic);
     }
 
     public void onChangeCardButtonClick(View refreshButton){
@@ -154,13 +155,11 @@ public class MainActivity extends AppCompatActivity {
             if (db.entryDao().getAllAsc().size() > 9) {
                 db.entryDao().delete(db.entryDao().getAllAsc().get(0));
             }
-
             Intent intent = new Intent(this, BoardEntryActivity.class);
             intent.putExtra("score", game.getScore());
             startActivity(intent);
         }
         else {
-//            Log.d(getClass().toString(), "db entries" + db.entryDao().getAllAsc());
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
