@@ -53,29 +53,34 @@ public class MainActivity extends AppCompatActivity {
 
         if (game.checkForRoundWin(button.getTag()) == "win"){
             if (game.checkGameOver()){
-                // you won the game
-                MediaPlayer mp = MediaPlayer.create(this, R.raw.fanfare);
-                mp.start();
-                messageView.setImageResource(R.drawable.winner);
-                messageView.setVisibility(View.VISIBLE);
-
+                gameIsWon();
             } else{
                 messageView.setImageResource(R.drawable.good_game);
-                messageView.setVisibility(View.VISIBLE);
+                displayMessage();
             }
         }else{
             MediaPlayer mp = MediaPlayer.create(this, R.raw.ff_buzzer);
             mp.start();
             if (game.checkForRoundWin(button.getTag()) == "draw"){
-                // You get nothing for a draw, not in this game.
                 messageView.setImageResource(R.drawable.a_draw);
-                messageView.setVisibility(View.VISIBLE);
+                displayMessage();
             }else{
                 // loser
                 messageView.setImageResource(R.drawable.you_just_lost);
-                messageView.setVisibility(View.VISIBLE);
+                displayMessage();
             }
         }
+    }
+
+    public void gameIsWon(){
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.fanfare);
+        mp.start();
+        messageView.setImageResource(R.drawable.winner);
+        displayMessage();
+    }
+
+    public void displayMessage(){
+        messageView.setVisibility(View.VISIBLE);
     }
 
     public void hideButtonsRevealCard(){
@@ -99,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onMessageClick(View messageButton){
         if (game.checkGameOver()) { goBoardEntryOrHome();}
+
         if (game.getResult() == "win"){
             messageButton.setVisibility(INVISIBLE);
             game.moveCards();
@@ -166,9 +172,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private static LeaderEntry addEntry(final LeaderDatabase db, LeaderEntry entry) {
-        db.entryDao().insertAll(entry);
-        return entry;
-    }
+//    private static LeaderEntry addEntry(final LeaderDatabase db, LeaderEntry entry) {
+//        db.entryDao().insertAll(entry);
+//        return entry;
+//    }
 
 }

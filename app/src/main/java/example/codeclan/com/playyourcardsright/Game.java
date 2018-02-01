@@ -57,14 +57,23 @@ public class Game {
         return this.result;
     }
 
+//    public boolean cardsEqual() {
+//        return this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue();
+//    }
 
     public String checkForRoundWin(Object tag) {
+
+        boolean cardIsHigher = this.nextCard.getRank().getValue() > this.firstCard.getRank().getValue();
+        boolean cardIsEqual = this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue();
+        boolean cardIsLower = this.nextCard.getRank().getValue() < this.firstCard.getRank().getValue();
+
         if (tag == "higher"){
-            if (this.nextCard.getRank().getValue() > this.firstCard.getRank().getValue()){
+
+            if (cardIsHigher){
                 result = "win";
                 this.score ++;
             }else{
-                if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()){
+                if (cardIsEqual){
                     result = "draw";
                 }else{
                     result = "lose";
@@ -72,18 +81,17 @@ public class Game {
             }
         }
         if (tag == "lower") {
-            if (this.nextCard.getRank().getValue() < this.firstCard.getRank().getValue()) {
+            if (cardIsLower) {
                 result = "win";
                 this.score ++;
             } else {
-                if (this.nextCard.getRank().getValue() == this.firstCard.getRank().getValue()) {
+                if (cardIsEqual) {
                     result = "draw";
                 } else {
                     result = "lose";
                 }
             }
         }
-        Log.d(getClass().toString(), "Correct guess? " + result);
         return this.result;
     }
 
