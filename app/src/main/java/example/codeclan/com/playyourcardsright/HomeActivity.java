@@ -31,4 +31,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onRulesButtonClick(View button) {
+        Intent intent = new Intent(this, RulesActivity.class);
+        startActivity(intent);
+    }
+
 }

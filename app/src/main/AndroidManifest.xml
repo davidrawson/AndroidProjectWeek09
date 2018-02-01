@@ -8,8 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +22,13 @@
         <activity
             android:name=".LeaderboardActivity"
             android:parentActivityName=".HomeActivity" />
-        <activity
-            android:name=".BoardEntryActivity" />
+        <activity android:name=".BoardEntryActivity" />
         <activity
             android:name=".DeleteBoardItemActivity"
             android:parentActivityName=".LeaderboardActivity" />
+        <activity
+            android:name=".RulesActivity"
+            android:parentActivityName=".HomeActivity"></activity>
     </application>
 
 </manifest>
