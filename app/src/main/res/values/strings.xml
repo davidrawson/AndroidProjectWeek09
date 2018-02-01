@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">PlayYourCardsRight</string>
-    <string name="game_rules">There are five cards laid out, and you are to guess if the next card is higher or lower - ace being the highest card, and two being lowest./nThe first card can be changed if you wish./nIf your guess is correct you continue with the next card./n/nCorrectly guessing all cards to the end wins the game./nThe Full Deck Game has the same rules but uses the full deck rather than just five cards./nRemember, you get nothing for a pair, not in this game.
+    <string name="game_rules">There are five cards laid out, and you are to guess if the next card is higher or lower - ace being the highest card, and two being lowest.\n\nThe first card can be changed if you wish.\n\nIf your guess is correct you continue with the next card. Correctly guessing all cards to the end wins the game.\n\nThe Full Deck Game has the same rules but uses the full deck rather than five cards.\n\nRemember, you get nothing for a pair, not in this game.
 </string>
 </resources>
